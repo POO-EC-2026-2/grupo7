@@ -1,0 +1,47 @@
+@startuml
+title Caso de uso 1 — Cadastrar conta
+
+|Usuário|
+start
+:Abrir tela de cadastro;
+:Preencher nome, e-mail, senha, universidade e curso;
+
+repeat
+  |Usuário|
+  :Clicar em "Criar conta";
+
+  |CampusHub|
+  if (Todos os campos obrigatórios\nestão preenchidos?) then (Sim)
+
+    if (O formato do e-mail é válido?) then (Sim)
+
+      if (A senha possui pelo menos\n6 caracteres?) then (Sim)
+
+        :Tentar cadastrar o usuário;
+
+        if (E-mail já cadastrado?) then (Sim)
+          :Exibir "Este e-mail já está cadastrado.";
+        else (Não)
+          :Armazenar dados, hash e salt da senha;
+          :Abrir tela de login;
+          stop
+        endif
+
+      else (Não)
+        :Exibir "A senha deve ter\npelo menos 6 caracteres.";
+      endif
+
+    else (Não)
+      :Exibir "Digite um e-mail válido.";
+    endif
+
+  else (Não)
+    :Exibir "Preencha todos os campos.";
+  endif
+
+  |Usuário|
+  :Corrigir os dados e tentar novamente;
+
+repeat while ()
+
+@enduml

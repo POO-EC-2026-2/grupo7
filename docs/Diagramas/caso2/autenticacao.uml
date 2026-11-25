@@ -1,0 +1,21 @@
+@startuml
+title Caso de uso 2 - Autenticar usuário
+
+|Usuário|
+start
+:Abrir tela de login;
+:Preencher e-mail e senha;
+
+repeat 
+  |Usuário|
+  :Clicar em "Entrar";
+
+  |CampusHub|
+  if(Todos os campos obrigatórios\nestão preenchidos?) then (Sim)
+
+   :Buscar usuário pelo e-mail;
+   
+   if(Usuário encontrado?) then (Sim)
+
+    if(A senha está correta?) then (Sim)
+
