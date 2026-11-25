@@ -6,7 +6,7 @@ start
 :Abrir tela de login;
 :Preencher e-mail e senha;
 
-repeat 
+ repeat 
   |Usuário|
   :Clicar em "Entrar";
 
@@ -16,6 +16,33 @@ repeat
    :Buscar usuário pelo e-mail;
    
    if(Usuário encontrado?) then (Sim)
+    
+    :Verificar senha usando\no salt e hash armazenados;
 
-    if(A senha está correta?) then (Sim)
+    
+      if(A senha está correta?) then (Sim)
+
+       :Definir usuário como autenticado;
+       :Abrir tela principal;
+       stop
+       else(Não)
+        :Exibir "E-mail ou senha incorretos.";
+       endif
+
+    else(Não)
+     :Exibir "E-mail ou senha incorretos.";
+    endif
+
+   else(Não)
+    :Exibir "Preencha todos os campos.";
+   endif
+
+  |Usuário|
+  :Corrigir os dados e tentar novamente; 
+
+repeat while()
+
+@enduml
+
+
 
