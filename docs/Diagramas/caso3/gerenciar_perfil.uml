@@ -1,0 +1,56 @@
+@startuml
+title Caso de uso 3 - Gerenciar perfil
+
+|Usuário|
+start
+ :Tela principal aberta;
+ :Abrir tela de perfil;
+ :Alterar dados;
+ :Adicionar interesses;
+ :Alterar foto;
+
+|CampusHub|
+ :Abrir seletor de imagens;
+
+|Usuário|
+ :Seleciona uma imagem;
+
+|CampusHub|
+ :Processar a imagem selecionada e tentar salvar o arquivo;
+ if(Foto foi salva?) then (Sim)
+ :Atualizar a referência da foto na sessão;
+ :Exibir a foto no perfil;
+ :Exibir "Foto de perfil atualizada!";
+ else(Não)
+ :Exibir "Não foi possível salvar a foto.";
+ endif
+
+ |Usuário|
+ repeat
+  :Clicar em "Salvar alterações";
+
+ |CampusHub|
+ if(Todos os campos obrigatórios\nestão preenchidos?) then (Sim)
+
+  if(O e-mail atual está no formato correto?) then (Sim)
+  :Tentar atualizar o perfil no banco;
+   if(Perfil atualizado?) then (Sim)
+    :Atualizar os dados do usuário na sessão;
+    :Exibir "Perfil atualizado com sucesso!";
+    stop
+   else(Não)
+    :Exibir "Este e-mail já está cadastrado\n ou a conta não foi encontrada.";
+   endif
+  else(Não)
+   :Exibir "Digite um endereço de e-mail válido.";
+  endif
+ else(Não)
+  :Exibir "Preencha todos os campos obrigatórios.";
+ endif
+
+|Usuário|
+:Corrigir os dados e tentar novamente;
+
+repeat while()
+
+@enduml
