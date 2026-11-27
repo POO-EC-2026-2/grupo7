@@ -1,0 +1,22 @@
+@startuml
+
+title Caso de uso 4.4 - Excluir evento
+
+|Usuário|
+start
+:Tela de eventos aberta;
+:Encontrar o evento de sua autoria a ser excluído;
+:Clicar em "Excluir";
+
+|CampusHub|
+:Exibir aviso "Deseja excluir esse evento?";
+
+|Usuário|
+:Clicar em "OK";
+
+|CampusHub|
+:Excluir o evento do banco;
+:Atualizar a lista de eventos;
+stop
+
+@enduml

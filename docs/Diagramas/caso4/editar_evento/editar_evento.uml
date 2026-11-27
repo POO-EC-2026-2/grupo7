@@ -1,0 +1,38 @@
+@startuml
+
+title Caso de uso 4.3 - Editar evento
+
+|Usuário|
+start
+:Tela de eventos aberta;
+:Encontrar evento que deseja editar;
+repeat
+|Usuário|
+:Clicar em "Editar";
+:Fazer as alterações desejadas;
+:Clicar em "Salvar";
+
+|CampusHub|
+if(Todos os campos obrigatórios\nforam preenchidos?) then (Sim)
+if(A data está no formato correto e\n é hoje ou no futuro?) then (Sim)
+if(O horário é válido e está no formato correto?) then (Sim)
+:Salvar as alterações no banco;
+:Exibir o evento com as devidas alterações na tela de eventos;
+stop
+else(Não)
+:Exibir aviso de horário inválido;
+endif
+else(Não)
+:Exibir aviso de data inválida;
+endif
+else(Não)
+:Exibir aviso para que todos os campos sejam preenchidos;
+endif
+
+|Usuário|
+:Fechar o aviso e tentar novamente;
+
+repeat while()
+
+@enduml
+

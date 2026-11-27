@@ -1,0 +1,36 @@
+@startuml
+
+title Caso de uso 4.2 - Criar evento
+
+|Usuário|
+start
+:Tela de evento aberta;
+repeat 
+|Usuário|
+:Clicar em "Criar evento";
+:Preencher os campos de informações do evento;
+:Clicar em "Salvar";
+
+|CampusHub|
+if(Todos os campos obrigatórios\nforam preenchidos?) then (Sim)
+if(A data está no formato correto e\n é hoje ou no futuro?) then (Sim)
+if(O horário é válido e está no formato correto?) then (Sim)
+:Salvar o evento e suas informações no banco;
+:Exibir o evento na tela de eventos;
+stop
+else(Não)
+:Exibir aviso de horário inválido;
+endif
+else(Não)
+:Exibir aviso de data inválida;
+endif
+else(Não)
+:Exibir aviso para que todos os campos sejam preenchidos;
+endif
+
+|Usuário|
+:Fechar o aviso e tentar novamente;
+
+repeat while()
+
+@enduml

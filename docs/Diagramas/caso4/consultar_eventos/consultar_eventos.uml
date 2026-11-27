@@ -1,0 +1,24 @@
+@startuml
+
+title Caso de uso 4.1 - Consultar eventos
+
+|Usuário|
+start
+:Tela principal aberta; 
+:Clicar em "Eventos";
+
+|CampusHub|
+:Buscar eventos já cadastrados no banco;
+if(Há eventos já cadastrados) then (Sim)
+:Abrir tela de eventos;
+:Exibir eventos;
+else(Não)
+:Abrir tela de eventos;
+:Exibir "Nenhum evento cadastrado ainda. Que tal criar o primeiro?";
+endif
+
+|Usuário|
+:Consulta as informações dos eventos disponíveis, caso haja algum;
+stop
+
+@enduml
