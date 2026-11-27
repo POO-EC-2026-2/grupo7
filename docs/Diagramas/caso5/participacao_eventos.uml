@@ -1,0 +1,35 @@
+@startuml
+
+title Caso de uso 5 - Gerenciar participação em eventos
+
+|Usuário|
+start
+:Tela de eventos aberta;
+:Encontrar evento desejado;
+
+|CampusHub|
+:Verificar se o usuário participa desse evento;
+
+if(Participa?) then (Sim)
+:Exibir a opção "Sair do evento";
+
+|Usuário|
+:Clica em "Sair do evento";
+
+|CampusHub|
+:Remover a participação do banco;
+
+else(Não)
+:Exibir o botão "Participar";
+
+|Usuário|
+:Clica em "Participar";
+
+|CampusHub|
+:Registrar a participação no banco;
+endif
+:Atualizar lista de eventos;
+:Exibir o total de participantes e\no botão referente à participação atual;
+stop
+
+@enduml
