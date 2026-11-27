@@ -1,0 +1,19 @@
+@startuml
+
+title Caso de uso 6.1 - Consultar grupos
+
+|Usuário|
+start
+:Tela principal aberta;
+:Clicar em "Grupos";
+
+|CampusHub|
+:Buscar grupos cadastrados no banco;
+:Exibir tela com lista de grupos e campo de busca;
+
+|Usuário|
+:Percorrer a lista de grupos;
+:Consultar os grupos disponíveis e suas respectivas descrições;
+stop
+
+@enduml

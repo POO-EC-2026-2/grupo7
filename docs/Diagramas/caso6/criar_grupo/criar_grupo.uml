@@ -1,0 +1,33 @@
+@startuml
+
+title Caso de uso 6.3 - Criar grupo
+
+|Usuário|
+start
+:Tela de grupos aberta;
+repeat
+:Clicar em "Criar grupo";
+
+|CampusHub|
+:Exibir campos de nome e descrição do grupo;
+
+|Usuário|
+:Preencher os campos;
+:Clicar em "Salvar";
+
+|CampusHub|
+if(Todos os campos foram preenchidos?) then (Sim)
+:Cadastrar grupo no banco;
+:Exibir aviso de criação de grupo;
+:Exibir grupo na lista;
+stop
+else(Não)
+:Exibir aviso de campos obrigatórios;
+endif 
+
+|Usuário|
+:Fechar aviso e tentar novamente;
+
+repeat while()
+
+@enduml

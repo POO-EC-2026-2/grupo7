@@ -1,0 +1,35 @@
+@startuml
+
+title Caso de uso 6.5 - Excluir grupo 
+
+|Usuário|
+start
+:Tela de grupos aberta;
+:Buscar grupo que deseja excluir;
+
+|CampusHub|
+if(O grupo foi criado por esse usuário?) then (Sim)
+:Exibir botão "Excluir";
+
+|Usuário|
+:Pode excluir o grupo;
+:Clicar no botão "Excluir";
+
+|CampusHub|
+:Exibir aviso "Deseja excluir o grupo [nome do grupo]?";
+
+|Usuário|
+:Clicar em "OK";
+
+|CampusHub|
+:Excluir grupo do banco;
+:Atualizar lista de grupos;
+stop
+
+else(Não)
+:Não exibir botão "Excluir";
+endif
+stop
+
+@enduml
+

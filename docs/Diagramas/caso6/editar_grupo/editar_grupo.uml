@@ -1,0 +1,47 @@
+@startuml
+title Caso de uso 6.4 - Editar grupo
+
+|Usuário|
+start
+:Tela de grupos aberta;
+:Buscar grupo que deseja editar;
+
+|CampusHub|
+if (O grupo foi criado por esse usuário?) then (Sim)
+:Exibir botão "Editar";
+
+|Usuário|
+repeat
+:Clicar no botão "Editar";
+
+|CampusHub|
+:Exibir campos de nome e descrição do grupo;
+
+|Usuário|
+:Editar o que deseja;
+:Clicar em "Salvar";
+
+|CampusHub|
+if (Todos os campos foram preenchidos?) then (Sim)
+:Salvar alterações no banco;
+:Exibir aviso de grupo atualizado;
+:Exibir o grupo atualizado na lista;
+stop
+else (Não)
+:Exibir aviso de campos obrigatórios;
+endif
+
+|Usuário|
+:Fechar o aviso e tentar novamente;
+
+repeat while ()
+-[hidden]->
+detach
+
+else (Não)
+|CampusHub|
+:Não exibir botão "Editar";
+endif
+
+stop
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+
+title Caso de uso 6.2 - Pesquisar grupos
+
+|Usuário|
+start
+:Tela de grupos aberta;
+:Clicar no campo de busca;
+:Digitar um termo de busca;
+
+|CampusHub|
+:Filtrar grupos pelo texto digitado\nno nome ou descrição;
+if(Há grupos correspondentes?) then (Sim)
+:Exibir os grupos e suas descrições;
+else(Não)
+:Exibir "Nenhum grupo encontrado.";
+endif
+stop
+
+@enduml
