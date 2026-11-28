@@ -1,0 +1,35 @@
+@startuml
+
+title Caso de uso 7 - Gerenciar participação em grupos
+
+|Usuário|
+start
+:Tela de grupos aberta;
+:Encontrar grupo desejado;
+
+|CampusHub|
+:Verificar se o usuário participa desse grupo;
+
+if(Participa?) then (Sim)
+:Exibir o botão "Sair do grupo";
+
+|Usuário|
+:Clica em "Sair do grupo";
+
+|CampusHub|
+:Remover a participação do banco;
+
+else(Não)
+:Exibir o botão "Participar";
+
+|Usuário|
+:Clica em "Participar";
+
+|CampusHub|
+:Registrar a participação no banco;
+endif
+:Atualizar lista de grupos;
+:Exibir o total de participantes e\no botão referente à participação atual;
+stop
+
+@enduml

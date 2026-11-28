@@ -1,0 +1,48 @@
+@startuml
+
+title Caso de uso 8.3 - Editar publicação
+
+|Usuário|
+start
+:Tela do mural aberta;
+:Encontrar publicação que deseja editar;
+
+|CampusHub|
+if (A publicação é desse usuário?) then (Sim)
+:Exibir botão "Editar";
+
+|Usuário|
+:Clicar em "Editar";
+:Alterar os campos desejados;
+repeat
+:Clicar em "Salvar alterações";
+
+|CampusHub|
+if(Título e conteúdo foram preenchidos?) then (Sim)
+:Tentar atualizar a publicação no banco;
+if(Publicação atualizada?) then (Sim)
+:Limpar formulário e sair do modo de edição;
+:Atualizar lista de publicações;
+stop
+else(Não)
+:Exibir "Não foi possível editar esta publicação.";
+stop
+endif
+else(Não)
+:Exibir aviso "Preencha o título e o conteúdo da publicação.";
+endif
+
+|Usuário|
+:Fechar o aviso e corrigir os campos;
+
+repeat while ()
+-[hidden]->
+detach
+
+else(Não)
+|CampusHub|
+:Não exibir botão "Editar";
+endif
+stop
+
+@enduml

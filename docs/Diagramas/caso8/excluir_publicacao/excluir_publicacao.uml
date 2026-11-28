@@ -1,0 +1,32 @@
+@startuml
+
+title Caso de uso 8.4 - Excluir publicação
+
+|Usuário|
+start
+:Tela do mural aberta;
+:Encontrar publicação que deseja excluir;
+
+|CampusHub|
+if (A publicação é desse usuário?) then (Sim)
+:Exibir botão "Excluir";
+
+|Usuário|
+:Clicar em "Excluir";
+
+|CampusHub|
+:Exibir aviso "Deseja excluir esta publicação?"\ncom título da publicação;
+
+|Usuário|
+:Clicar em "OK";
+
+|CampusHub|
+:Excluir a publicação do banco;
+:Atualizar mural;
+stop
+else(Não)
+:Não exibir botão "Excluir";
+endif
+stop
+
+@enduml

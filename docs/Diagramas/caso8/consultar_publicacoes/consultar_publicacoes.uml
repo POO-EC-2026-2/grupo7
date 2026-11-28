@@ -1,0 +1,31 @@
+@startuml
+
+title Caso de uso 8.1 - Consultar publicações
+
+|Usuário|
+start
+:Clicar em Acadêmico;
+
+|CampusHub|
+:Abrir seção "Acadêmico";
+
+|Usuário|
+:Tela acadêmica aberta;
+:Abrir o mural;
+
+|CampusHub|
+:Buscar publicações cadastradas no banco;
+:Exibir tela do mural;
+if(Há publicações cadastradas?) then (Sim)
+:Exibir publicações da mais recente para a mais antiga;
+:Exibir título, conteúdo, autor e data de cada publicação;
+
+|Usuário|
+:Percorrer a lista e consultar as publicações;
+else(Não)
+|CampusHub|
+:Exibir "Ainda não existem publicações.\nSeja o primeiro a compartilhar algo!";
+endif
+
+stop
+@enduml

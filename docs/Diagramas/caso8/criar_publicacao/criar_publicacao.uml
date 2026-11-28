@@ -1,0 +1,28 @@
+@startuml
+
+title Caso de uso 8.2 - Criar publicação
+
+|Usuário|
+start
+:Tela do mural aberta;
+:Preencher título e conteúdo da publicação;
+
+repeat
+:Clicar em "Publicar";
+
+|CampusHub|
+if(Título e conteúdo foram preenchidos?) then (Sim)
+:Salvar publicação no banco com os dados do autor;
+:Limpar formulário;
+:Atualizar lista de publicações;
+stop
+else(Não)
+:Exibir aviso de campos obrigatórios\n"Preencha o título e o conteúdo da publicação.";
+endif
+
+|Usuário|
+:Fechar o aviso e corrigir os campos;
+
+repeat while ()
+
+@enduml
